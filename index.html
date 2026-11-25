@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cape Town Streetwear</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f6;
+        margin: 0;
+        padding: 40px;
+        text-align: center;
+      }
+
+      /* New Cart Summary Banner */
+      .cart-banner {
+        background-color: #111111;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 8px;
+        display: inline-block;
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+
+      .store-grid {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .product-card {
+        background-color: white;
+        padding: 25px;
+        border-radius: 12px;
+        width: 240px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .price {
+        font-weight: bold;
+        color: #2e7d32;
+        font-size: 18px;
+      }
+
+      button {
+        background-color: darkred;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      button:hover {
+        background-color: #a30000;
+      }
+
+      .clear-btn {
+        background-color: #444444;
+        margin-left: 15px;
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+
+      .clear-btn:hover {
+        background-color: #666666;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>Cape Town Streetwear</h1>
+    <p>Local style, delivered nationwide.</p>
+
+    <!-- Live Shopping Cart Display -->
+    <div class="cart-banner">
+      Items in Cart: <strong id="cart-count">0</strong> | 
+      Total: <strong>R<span id="cart-total">0</span></strong>
+      <button class="clear-btn" onclick="clearCart()">Empty Cart</button>
+    </div>
+
+   <div class="store-grid">
+      <div class="product-card">
+        <h2>Oversized Heavyweight Hoodie</h2>
+        <p class="price">R650</p>
+        <button onclick="addToCart(650)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <h2>Graphic T-Shirt</h2>
+        <p class="price">R350</p>
+        <button onclick="addToCart(350)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <h2>Oversized Cargo Pants</h2>
+        <p class="price">R790</p>
+        <button onclick="addToCart(790)">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+      // 1. Variables to remember the cart's numbers
+      let itemCount = 0;
+      let totalPrice = 0;
+
+      // 2. Runs every time a shopper clicks "Add to Cart"
+      function addToCart(price) {
+        itemCount = itemCount + 1;
+        totalPrice = totalPrice + price;
+
+        // Push the updated numbers onto the webpage
+        document.getElementById("cart-count").innerText = itemCount;
+        document.getElementById("cart-total").innerText = totalPrice;
+      }
+
+      // 3. Resets the cart back to zero
+      function clearCart() {
+        itemCount = 0;
+        totalPrice = 0;
+
+        document.getElementById("cart-count").innerText = itemCount;
+        document.getElementById("cart-total").innerText = totalPrice;
+      }
+    </script>
+
+  </body>
+</html>
